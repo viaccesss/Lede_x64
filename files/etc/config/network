@@ -1,0 +1,28 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config interface 'lan'
+	option type 'bridge'
+	option proto 'static'
+	option ipaddr '192.168.99.1'
+	option netmask '255.255.255.0'
+	option delegate '0'
+	option _orig_ifname 'eth0'
+	option _orig_bridge 'true'
+	option ifname 'eth0 eth1 eth2'
+
+config interface 'wan'
+	option _orig_ifname 'eth1'
+	option _orig_bridge 'false'
+	option proto 'pppoe'
+	option delegate '0'
+	option ifname 'eth3'
+	option username '05925801800'
+	option password 'wqs1800'
+	option ipv6 '0'
+	option keepalive '0'
+
